@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { FundComponent } from './fund/fund.component';
-import { HomeComponent } from './home/home.component';
-import { ManagerComponent } from './manager/manager.component';
-import { PositionComponent } from './position/position.component';
-import { SecurityComponent } from './security/security.component';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'fund', component: FundComponent },
-  { path: 'manager', component: ManagerComponent },
-  { path: 'security', component: SecurityComponent },
-  { path: 'position', component: PositionComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'fund', loadChildren: () => import('./pages/fund/fund.module').then(m => m.FundModule) },
+  { path: 'manager', loadChildren: () => import('./pages/manager/manager.module').then(m => m.ManagerModule) },
+  { path: 'security', loadChildren: () => import('./pages/security/security.module').then(m => m.SecurityModule) },
+  { path: 'position', loadChildren: () => import('./pages/position/position.module').then(m => m.PositionModule) },
 ];
 
 @NgModule({
