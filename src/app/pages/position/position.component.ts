@@ -19,6 +19,9 @@ export class PositionComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchValue = '';
+  visible = false;
+
   listOfData: Position[] = [
     {
       id: '1',
@@ -51,5 +54,17 @@ export class PositionComponent implements OnInit {
       date: new Date(2017, 0, 27)
     }
   ];
+
+  listOfDisplayData = [...this.listOfData];
+
+  reset(): void {
+    this.searchValue = '';
+    this.search();
+  }
+
+  search(): void {
+    this.visible = false;
+    this.listOfDisplayData = this.listOfData.filter((item: Position) => item.symbol.indexOf(this.searchValue) !== -1);
+  }
 
 }

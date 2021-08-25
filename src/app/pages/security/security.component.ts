@@ -17,6 +17,9 @@ export class SecurityComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchValue = '';
+  visible = false;
+
   listOfData: Security[] = [
     {
       id: '1',
@@ -31,5 +34,17 @@ export class SecurityComponent implements OnInit {
       symbol: 'C'
     }
   ];
+
+  listOfDisplayData = [...this.listOfData];
+
+  reset(): void {
+    this.searchValue = '';
+    this.search();
+  }
+
+  search(): void {
+    this.visible = false;
+    this.listOfDisplayData = this.listOfData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
+  }
 
 }

@@ -1,8 +1,13 @@
-<nz-table #managerTable [nzData]="listOfData">
+<nz-table #managerTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Full Name</th>
+      <th nzCustomFilter>
+        Full Name
+        <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
       <th>Fund</th>
       <th>Action</th>
     </tr>
@@ -20,3 +25,12 @@
     </tr>
   </tbody>
 </nz-table>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+      <button nz-button nzSize="small" (click)="reset()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
