@@ -1,4 +1,4 @@
-<nz-table #securityTable [nzData]="listOfData">
+<!-- <nz-table >
   <thead>
     <tr>
       <th>ID</th>
@@ -7,14 +7,49 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of securityTable.data">
-      <td>{{data.id}}</td>
-      <td>{{data.symbol}}</td>
+    <tr *ngFor="let security of securities| async">
+      <td>{{security.id}}</td>
+      <td>{{security.symbol}}</td>
       <td>
-        <a>Action 一 {{data.symbol}}</a>
+        <a>Action 一 {{security.symbol}}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table> -->
+
+<nz-table nzTableLayout="fixed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th nzCustomFilter>
+        Symbol
+        <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let security of securities| async">
+      <td>{{security.id}}</td>
+      <td>{{security.symbol}}</td>
+      <td>
+        <a>Modify</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a>Delete</a>
       </td>
     </tr>
   </tbody>
 </nz-table>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search security symbol" [(ngModel)]="searchValue" />
+      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+      <button nz-button nzSize="small" (click)="reset()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
