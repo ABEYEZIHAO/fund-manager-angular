@@ -21,6 +21,9 @@ export class FundComponent implements OnInit {
   ngOnInit() {
   }
 
+  searchValue = '';
+  visible = false;
+
   listOfData: Fund[] = [
     {
       id: '1',
@@ -63,5 +66,17 @@ export class FundComponent implements OnInit {
       date: new Date(2017, 0, 27)
     },
   ]
+
+  listOfDisplayData = [...this.listOfData];
+
+  reset(): void {
+    this.searchValue = '';
+    this.search();
+  }
+
+  search(): void {
+    this.visible = false;
+    this.listOfDisplayData = this.listOfData.filter((item: Fund) => item.name.indexOf(this.searchValue) !== -1);
+  }
 
 }
