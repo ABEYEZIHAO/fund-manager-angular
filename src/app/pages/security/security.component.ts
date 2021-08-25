@@ -52,10 +52,10 @@ export class SecurityComponent implements OnInit {
     this.search();
   }
 
-  // listOfDisplayData = [securities];
+  listOfDisplayData = [this.securityService.getSecurityList()];
   search(): void {
     this.visible = false;
-    this.securities = this.securities.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
+    this.listOfDisplayData = this.listOfDisplayData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
   }
 
   // listOfData: Security[] = [
