@@ -1,3 +1,24 @@
-<p>
-  position works!
-</p>
+<nz-table #positionTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Security</th>
+      <th>Quantity</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of positionTable.data">
+      <td>{{data.id}}</td>
+      <td>{{data.symbol}}</td>
+      <td>{{data.quantity}}</td>
+      <td>{{data.date}}</td>
+      <td>
+        <a>Modify</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

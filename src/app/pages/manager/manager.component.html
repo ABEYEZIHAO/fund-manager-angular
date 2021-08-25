@@ -1,3 +1,22 @@
-<p>
-  manager works!
-</p>
+<nz-table #managerTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Fund</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of managerTable.data">
+      <td>{{data.id}}</td>
+      <td>{{data.firstName}} {{data.lastName}}</td>
+      <td>{{data.fund}}</td>
+      <td>
+        <a>Modify</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
