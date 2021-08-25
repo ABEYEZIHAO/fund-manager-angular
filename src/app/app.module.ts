@@ -14,6 +14,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 registerLocaleData(en);
 
@@ -25,7 +26,7 @@ registerLocaleData(en);
     BrowserModule,
     AppRoutingModule,
     FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, IconsProviderModule, 
-    NzLayoutModule, NzMenuModule, NzTableModule
+    NzLayoutModule, NzMenuModule, NzTableModule, NzDividerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
