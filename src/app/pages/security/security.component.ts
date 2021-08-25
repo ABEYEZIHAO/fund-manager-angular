@@ -20,15 +20,15 @@ export class SecurityComponent implements OnInit {
   listOfData: Security[] = [
     {
       id: '1',
-      symbol: 'John Brown'
+      symbol: 'IBM'
     },
     {
       id: '2',
-      symbol: 'Jim Green'
+      symbol: 'AAPL'
     },
     {
       id: '3',
-      symbol: 'Joe Black'
+      symbol: 'C'
     }
   ];
 
