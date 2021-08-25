@@ -15,22 +15,33 @@ import{Router} from '@angular/router'
   styleUrls: ['./security.component.css']
 })
 export class SecurityComponent implements OnInit {
-  securities: Observable<Security[]>;
+  // securities: Observable<Security[]>;
+  securities: Array<any>;
+  listOfDisplayData: Array<any>;
+  searchValue: string;
+  visible: boolean;
 
   constructor(private securityService:SecurityService,private router:Router) 
   {
     // this.securities =  new Observable;
-    this.securities = this.securityService.getSecurityList();
+    // this.securities = this.securityService.getSecurityList();
+    this.securities = [];
+    this.listOfDisplayData = [];
+    this.searchValue = '';
+    this.visible = false;
   }
 
   ngOnInit(): void {
     this.reloadData();
   }
 
-  searchValue = '';
-  visible = false;
+  
   reloadData() {
-    this.securities = this.securityService.getSecurityList();
+    // this.securities = this.securityService.getSecurityList();
+    this.securityService.getSecurityList().subscribe(data => {
+      this.securities = data;
+    });
+    this.listOfDisplayData = [...this.securities];
   }
 
   deleteSecurity(id: number) {
@@ -52,7 +63,6 @@ export class SecurityComponent implements OnInit {
     this.search();
   }
 
-  listOfDisplayData = [this.securityService.getSecurityList()];
   search(): void {
     this.visible = false;
     this.listOfDisplayData = this.listOfDisplayData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);

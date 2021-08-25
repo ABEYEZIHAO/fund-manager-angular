@@ -19,7 +19,7 @@
   </tbody>
 </nz-table> -->
 
-<nz-table nzTableLayout="fixed">
+<nz-table #securityTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
   <thead>
     <tr>
       <th>ID</th>
@@ -33,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let security of securities| async">
+    <tr *ngFor="let security of securityTable.data">
       <td>{{security.id}}</td>
       <td>{{security.symbol}}</td>
       <td>

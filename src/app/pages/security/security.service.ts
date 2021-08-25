@@ -14,7 +14,7 @@ export class SecurityService {
   constructor(private http: HttpClient) { }
 
   getSecurity(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get<Security>(`${this.baseUrl}/${id}`);
   }
 
   createSecurity(security: Object): Observable<Object> {
