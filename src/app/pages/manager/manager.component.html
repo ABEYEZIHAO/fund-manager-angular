@@ -1,3 +1,9 @@
+<!-- ADD BUTTON -->
+<div style="text-align:right">
+  <i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+</div>
+<!-- ADD BUTTON END -->
+
 <nz-table #managerTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
   <thead>
     <tr>
@@ -18,9 +24,9 @@
       <td>{{data.firstName}} {{data.lastName}}</td>
       <td>{{data.fund}}</td>
       <td>
-        <a>Modify</a>
+        <i nz-icon nzType="edit" nzTheme="outline"></i>
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
       </td>
     </tr>
   </tbody>
