@@ -1,25 +1,29 @@
-<!-- <nz-table >
+<nz-table >
   <thead>
     <tr>
       <th>ID</th>
       <th>Symbol</th>
       <th>Action</th>
+      <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </tr>
+
   </thead>
   <tbody>
     <tr *ngFor="let security of securities| async">
       <td>{{security.id}}</td>
       <td>{{security.symbol}}</td>
       <td>
-        <a>Action 一 {{security.symbol}}</a>
+        <a>Update 一 {{security.symbol}}</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
+        <a href="javascript:void(0);" onclick="deleteSecurity(security.id)">Delete  </a>
+        <button (click)=deleteSecurity(security.id) class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </tbody>
-</nz-table> -->
 
-<nz-table nzTableLayout="fixed">
+</nz-table>
+
+<!-- <nz-table nzTableLayout="fixed">
   <thead>
     <tr>
       <th>ID</th>
@@ -52,4 +56,4 @@
       <button nz-button nzSize="small" (click)="reset()">Reset</button>
     </div>
   </div>
-</nz-dropdown-menu>
+</nz-dropdown-menu> -->

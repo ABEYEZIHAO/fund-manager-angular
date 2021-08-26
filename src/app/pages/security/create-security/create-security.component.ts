@@ -1,17 +1,16 @@
+import { SecurityService } from '../security-service/security.service';
+import { Security } from '../security';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import {Security} from "./security";
-import {SecurityService} from "./security.service";
-import{Router} from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-security',
-    templateUrl: './security.component.html',
-    styleUrls: ['./security.component.css']
-  })
+  selector: 'app-create-security',
+  templateUrl: './create-security.component.html',
+  styleUrls: ['./create-security.component.css']
+})
 export class CreateSecurityComponent implements OnInit {
 
-  security: Security = new Security(4,"Abb");
+  security: Security = new Security();
   submitted = false;
 
   constructor(private securityService: SecurityService,
@@ -22,14 +21,15 @@ export class CreateSecurityComponent implements OnInit {
 
   newSecurity(): void {
     this.submitted = false;
-    this.security = new Security(5,"Abb");
+    this.security = new Security();
   }
 
   save() {
+    console.log(this.security)
     this.securityService
     .createSecurity(this.security).subscribe(data => {
       console.log(data)
-      this.security = new Security(6,"Abb");
+      this.security = new Security();
       this.gotoList();
     }, 
     error => console.log(error));
@@ -41,6 +41,6 @@ export class CreateSecurityComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/securities']);
+    this.router.navigate(['security']);
   }
 }

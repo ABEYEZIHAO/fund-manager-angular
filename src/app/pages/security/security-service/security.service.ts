@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Security } from './security';
+import { Security } from '../security';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ export class SecurityService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createSecurity(security: Object): Observable<Object> {
+  createSecurity(security: Object): Observable<any> {
     return this.http.post(`${this.baseUrl}`, security);
   }
 

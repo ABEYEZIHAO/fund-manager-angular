@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import {Security} from "./security";
-import {SecurityService} from "./security.service";
+import {Security} from "../security";
+import {SecurityService} from "../security-service/security.service";
 import{Router} from '@angular/router'
 
-// interface Security {
-//   id: string;
-//   symbol: string;
-// }
 
 @Component({
-  selector: 'security',
+  selector: 'app-security',
   templateUrl: './security.component.html',
   styleUrls: ['./security.component.css']
 })
@@ -49,14 +45,14 @@ export class SecurityComponent implements OnInit {
 
   reset(): void {
     this.searchValue = '';
-    this.search();
+    // this.search();
   }
 
-  listOfDisplayData = [this.securityService.getSecurityList()];
-  search(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfDisplayData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
-  }
+  // listOfDisplayData = [...this.securityService.getSecurityList()];
+  // search(): void {
+  //   this.visible = false;
+  //   this.listOfDisplayData = this.listOfDisplayData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
+  // }
 
   // listOfData: Security[] = [
   //   {

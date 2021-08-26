@@ -10,6 +10,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateSecurityComponent } from './pages/security/create-security/create-security.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -20,7 +21,8 @@ registerLocaleData(en);
 
 @NgModule({
   declarations: [					
-    AppComponent
+    AppComponent,
+    CreateSecurityComponent,
    ],
   imports: [
     BrowserModule,
