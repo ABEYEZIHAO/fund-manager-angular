@@ -57,19 +57,6 @@ export class SecurityComponent implements OnInit {
   //   this.listOfDisplayData = this.listOfDisplayData.filter((item: Security) => item.symbol.indexOf(this.searchValue) !== -1);
   // }
 
-  // listOfData: Security[] = [
-  //   {
-  //     id: '1',
-  //     symbol: 'IBM'
-  //   },
-  //   {
-  //     id: '2',
-  //     symbol: 'AAPL'
-  //   },
-  //   {
-  //     id: '3',
-  //     symbol: 'C'
-  //   }
-  // ];
+
 
 }
