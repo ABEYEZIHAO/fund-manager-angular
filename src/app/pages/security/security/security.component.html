@@ -42,9 +42,9 @@
       <td>{{security.id}}</td>
       <td>{{security.symbol}}</td>
       <td>
-        <a href="javascript:void(0);" (click)="updateSecurity(security.id)">Modify</a>
+        <i nz-icon nzType="edit" nzTheme="outline" (click)="updateSecurity(security.id)"></i>
         <nz-divider nzType="vertical"></nz-divider>
-        <a href="javascript:void(0);" (click)="deleteSecurity(security.id)">Delete</a>
+        <i nz-icon nzType="delete" nzTheme="outline" (click)="deleteSecurity(security.id)"></i>
       </td>
     </tr>
   </tbody>
