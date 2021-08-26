@@ -14,11 +14,14 @@ export class SecurityComponent implements OnInit {
   securities: Observable<Security[]>;
   searchValue = '';
   visible = false;
-  isModalVisible = false;
+
+  isAddModalVisible = false;
+  isUpdateModalVisible = false;
   isConfirmLoading = false;
 
   security: Security = new Security();
-  submitted = false;
+  addSubmitted = false;
+  updateSubmitted = false;
 
   constructor(private securityService:SecurityService,private router:Router) 
   {
@@ -31,7 +34,8 @@ export class SecurityComponent implements OnInit {
   }
 
   newSecurity(): void {
-    this.submitted = false;
+    this.addSubmitted = false;
+    this.updateSubmitted = false;
     this.security = new Security();
   }
 
@@ -41,14 +45,20 @@ export class SecurityComponent implements OnInit {
     .createSecurity(this.security).subscribe(data => {
       console.log(data)
       this.security = new Security();
+      console.log(this.security);
     }, 
     error => console.log(error));
   }
 
-  onSubmit() {
-    console.log(this.security);
-    this.submitted = true;
-    this.save();    
+  update(id: number) {
+    console.log("update: " + id + " " + this.security.id + " " + this.security.symbol)
+    this.securityService
+    .updateSecurity(id, this.security).subscribe(data => {
+      console.log(data)
+      this.security = new Security();
+      console.log(this.security);
+    }, 
+    error => console.log(error));
   }
 
   reloadData() {
@@ -77,23 +87,41 @@ export class SecurityComponent implements OnInit {
     // this.search();
   }
 
-  showModal(): void {
-    this.isModalVisible = true;
+  showAddModal(): void {
+    this.isAddModalVisible = true;
+  }
+
+  showUpdateModal(): void {
+    this.isUpdateModalVisible = true;
   }
 
   handleOk(): void {
-    console.log(this.security);
+    console.log("handleOk: " + this.security.symbol);
     this.isConfirmLoading = true;
-    this.onSubmit();
-    setTimeout(() => {
-      this.isModalVisible = false;
-      this.isConfirmLoading = false;
-    }, 1000);
+
+    this.addSubmitted = true;
+    this.save();
+    this.isAddModalVisible = false;
+    this.isConfirmLoading = false;
     
+    this.reloadData();
+  }
+
+  handleUpdate(id: number): void {
+    console.log("handleUpdate: " + id + " " + this.security.symbol);
+    this.isConfirmLoading = true;
+
+    this.updateSubmitted = true;
+    this.update(id);
+    this.isUpdateModalVisible = false;
+    this.isConfirmLoading = false;
+    
+    this.reloadData();
   }
 
   handleCancel(): void {
-    this.isModalVisible = false;
+    this.isAddModalVisible = false;
+    this.isUpdateModalVisible = false;
   }
 
   // listOfDisplayData = [...this.securityService.getSecurityList()];

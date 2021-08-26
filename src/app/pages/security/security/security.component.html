@@ -1,8 +1,9 @@
+<!-- ADD BUTTON -->
 <div style="text-align:right">
 
-  <i nz-icon nzType="plus-circle" nzTheme="outline" (click)="showModal()"></i>
+  <i nz-icon nzType="plus-circle" nzTheme="outline" (click)="showAddModal()"></i>
   <nz-modal
-    [(nzVisible)]="isModalVisible"
+    [(nzVisible)]="isAddModalVisible"
     [nzTitle]="modalTitle"
     [nzContent]="modalContent"
     [nzFooter]="modalFooter"
@@ -11,23 +12,21 @@
     <ng-template #modalTitle>Add a new security</ng-template>
 
     <ng-template #modalContent>
-      <div [hidden]="submitted">
-        <input nz-input placeholder="security symbol" id="symbol" required [(ngModel)]="security.symbol" name="symbol"/>
+      <div [hidden]="addSubmitted">
+        <input nz-input placeholder="security symbol" required [(ngModel)]="security.symbol" name="symbol"/>
       </div>
-
-      <div [hidden]="!submitted">
-        <h4>You submitted successfully!</h4>
-        <button class="btn btn-success" (click)="newSecurity()">Added</button>
-      </div> 
     </ng-template>
 
     <ng-template #modalFooter>
       <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
-      <button nz-button nzType="primary" (click)="handleOk()" nzLoading="isConfirmLoading">Add</button>
+      
+      <button nz-button nzType="primary" type="submit" class="btn btn-success" (click)="handleOk()" nzLoading="isConfirmLoading">Add</button>
     </ng-template>
   </nz-modal>  
 </div>
+<!-- ADD BUTTON END -->
 
+<!-- A TABLE FOR THE DATA -->
 <nz-table >
   <thead>
     <tr>
@@ -38,18 +37,43 @@
 
   </thead>
   <tbody>
-    <tr *ngFor="let security of securities| async">
-      <td>{{security.id}}</td>
-      <td>{{security.symbol}}</td>
+    <!-- Use ngFor to get all the securities -->
+    <tr *ngFor="let s of securities| async">
+      <td>{{s.id}}</td>
+      <td>{{s.symbol}}</td>
       <td>
-        <i nz-icon nzType="edit" nzTheme="outline" (click)="updateSecurity(security.id)"></i>
+        <!-- A update icon and its corresponding window -->
+        <i nz-icon nzType="edit" nzTheme="outline" (click)="showUpdateModal()"></i>
+        <nz-modal
+          [(nzVisible)]="isUpdateModalVisible"
+          [nzTitle]="modalTitle"
+          [nzContent]="modalContent"
+          [nzFooter]="modalFooter"
+          (nzOnCancel)="handleCancel()"
+        >
+          <ng-template #modalTitle>Modify the security</ng-template>
+
+          <ng-template #modalContent>
+            <div [hidden]="updateSubmitted">
+              <input nz-input placeholder="symbol ID" required [(ngModel)]="security.id" name="id"/>
+              <input nz-input placeholder="symbol name" required [(ngModel)]="security.symbol" name="symbol"/>
+            </div>
+          </ng-template>
+
+          <ng-template #modalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+            <button nz-button nzType="primary" (click)="handleUpdate(s.id)" nzLoading="isConfirmLoading">Modify</button>
+          </ng-template>
+        </nz-modal>
+        <!-- UPDATE END -->
         <nz-divider nzType="vertical"></nz-divider>
-        <i nz-icon nzType="delete" nzTheme="outline" (click)="deleteSecurity(security.id)"></i>
+        <i nz-icon nzType="delete" nzTheme="outline" (click)="deleteSecurity(s.id)"></i>
       </td>
     </tr>
   </tbody>
 
 </nz-table>
+<!-- TABLE END -->
 
 <!-- <nz-table nzTableLayout="fixed">
   <thead>

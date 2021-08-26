@@ -21,8 +21,8 @@ export class SecurityService {
     return this.http.post(`${this.baseUrl}`, security);
   }
 
-  updateSecurity(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateSecurity(id: number, security: Object): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, security);
   }
 
   deleteSecurity(id: number): Observable<any> {
