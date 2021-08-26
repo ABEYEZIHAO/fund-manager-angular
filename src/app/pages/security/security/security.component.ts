@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Security } from "../security";
 import { SecurityService } from "../security-service/security.service";
 import { Router } from '@angular/router'
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @Component({
@@ -23,7 +24,20 @@ export class SecurityComponent implements OnInit {
   addSubmitted = false;
   updateSubmitted = false;
 
-  constructor(private securityService:SecurityService,private router:Router) 
+  // DELETE ICON
+  cancel(): void {
+    this.nzMessageService.info('Cancel');
+  }
+
+  confirm(id: number): void {
+    this.deleteSecurity(id);
+    this.nzMessageService.info('Deleted');
+  }
+  // confirm(): void {
+  //   this.nzMessageService.info('click confirm');
+  // }
+
+  constructor(private securityService: SecurityService, private router: Router, private nzMessageService: NzMessageService) 
   {
     // this.securities =  new Observable;
     this.securities = this.securityService.getSecurityList();

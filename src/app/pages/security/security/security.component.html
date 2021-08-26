@@ -67,7 +67,12 @@
         </nz-modal>
         <!-- UPDATE END -->
         <nz-divider nzType="vertical"></nz-divider>
-        <i nz-icon nzType="delete" nzTheme="outline" (click)="deleteSecurity(s.id)"></i>
+        <i nz-icon nzType="delete" nzTheme="outline"
+          nz-popconfirm
+          nzPopconfirmTitle="Are you sure delete this task?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="confirm(s.id)"
+          (nzOnCancel)="cancel()"></i>
       </td>
     </tr>
   </tbody>
