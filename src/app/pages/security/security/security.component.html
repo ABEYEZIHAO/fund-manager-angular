@@ -13,10 +13,11 @@
       <td>{{security.id}}</td>
       <td>{{security.symbol}}</td>
       <td>
-        <a>Update 一 {{security.symbol}}</a>
+        <a href="javascript:void(0);" (click)="updateSecurity(security.id)">Update 一 {{security.symbol}}</a>
+        
         <nz-divider nzType="vertical"></nz-divider>
-        <a href="javascript:void(0);" onclick="deleteSecurity(security.id)">Delete  </a>
-        <button (click)=deleteSecurity(security.id) class="btn btn-danger">Delete</button>
+        <a href="javascript:void(0);" (click)="deleteSecurity(security.id)">Delete  </a>
+        
       </td>
     </tr>
   </tbody>

@@ -42,6 +42,9 @@ export class SecurityComponent implements OnInit {
   securityDetails(id: number){
     this.router.navigate(['details', id]);
   }
+  updateSecurity(id: number){
+    this.router.navigate(['update', id]);
+  }
 
   reset(): void {
     this.searchValue = '';

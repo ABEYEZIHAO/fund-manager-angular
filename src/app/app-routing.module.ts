@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CreateSecurityComponent } from './pages/security/create-security/create-security.component';
+import { UpdateSecurityComponent } from './pages/security/update-security/update-security.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'manager', loadChildren: () => import('./pages/manager/manager.module').then(m => m.ManagerModule) },
   { path: 'security', loadChildren: () => import('./pages/security/security.module').then(m => m.SecurityModule) },
   { path: 'position', loadChildren: () => import('./pages/position/position.module').then(m => m.PositionModule) },
-  { path: 'add', component: CreateSecurityComponent }
+  { path: 'add', component: CreateSecurityComponent },
+  { path: 'update/:id', component: UpdateSecurityComponent }
 ];
 
 @NgModule({

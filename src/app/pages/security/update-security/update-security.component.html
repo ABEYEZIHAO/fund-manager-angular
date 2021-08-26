@@ -1,1 +1,17 @@
-<p>update-security works!</p>
+<h3>Update Employee</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="id">id</label>
+      <input type="number" class="form-control" id="id" required [(ngModel)]="security.id" name="id">
+    </div>
+
+    <div class="form-group">
+      <label for="symbol"> Symbol</label>
+      <input type="text" class="form-control" id="symbol" required [(ngModel)]="security.symbol" name="symbol">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
