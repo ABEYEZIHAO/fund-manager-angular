@@ -25,7 +25,6 @@ registerLocaleData(en);
 @NgModule({
   declarations: [					
     AppComponent,
-    UpdateSecurityComponent
    ],
   imports: [
     BrowserModule,
