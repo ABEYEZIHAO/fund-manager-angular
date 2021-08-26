@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { SecurityRoutingModule } from './security-routing.module';
 
@@ -11,10 +10,15 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { CommonModule } from '@angular/common';
 
+import { UpdateSecurityComponent } from './update-security/update-security.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  imports: [SecurityRoutingModule, NzTableModule, NzDividerModule, CommonModule, NzDropDownModule, FormsModule, NzIconModule],
-  declarations: [SecurityComponent],
+  imports: [SecurityRoutingModule, NzTableModule, NzDividerModule, CommonModule, NzIconModule, NzDropDownModule, NzModalModule, NzFormModule, FormsModule, ReactiveFormsModule],
+  declarations: [SecurityComponent, UpdateSecurityComponent],
   exports: [SecurityComponent]
 })
 export class SecurityModule { }
