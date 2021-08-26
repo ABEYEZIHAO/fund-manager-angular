@@ -1,3 +1,5 @@
-<p>
-  home works!
-</p>
+<nz-carousel nzAutoPlay [nzAutoPlaySpeed]=2000>
+  <div nz-carousel-content *ngFor="let i of array">
+    <h3>{{ i }}</h3>
+  </div>
+</nz-carousel>

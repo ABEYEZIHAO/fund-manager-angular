@@ -12,4 +12,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  array = [1, 2, 3, 4];
 }

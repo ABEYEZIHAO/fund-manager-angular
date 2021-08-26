@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'fund', loadChildren: () => import('./pages/fund/fund.module').then(m => m.FundModule) },
   { path: 'manager', loadChildren: () => import('./pages/manager/manager.module').then(m => m.ManagerModule) },
   { path: 'security', loadChildren: () => import('./pages/security/security.module').then(m => m.SecurityModule) },
-  { path: 'position', loadChildren: () => import('./pages/position/position.module').then(m => m.PositionModule) }
+  { path: 'position', loadChildren: () => import('./pages/position/position.module').then(m => m.PositionModule) },
+  { path: 'todo', loadChildren: () => import('./pages/todo/todo.module').then(m => m.TodoModule) }
 ];
 
 @NgModule({

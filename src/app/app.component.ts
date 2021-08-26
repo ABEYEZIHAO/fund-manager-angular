@@ -8,11 +8,11 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   public menuList = [{
-    title: "Dashboard",
-    icon: "dashboard",
+    title: "Home",
+    icon: "home",
     secMenu:[{
       routerLink: "/home",
-      menuName: "Home"
+      menuName: "Introduction"
     },{
       routerLink: "/fund",
       menuName: "Fund"
@@ -27,17 +27,13 @@ export class AppComponent {
       menuName: "Position"
     }]
   },{
-    title: "loopMenu2",
+    title: "TODO",
     icon: "form",
     secMenu:[{
-      routerLink: "/menus2",
-      menuName: "menu_2_1"
-    },{
-      routerLink: "/menus3",
-      menuName: "menu_2_2"
+      routerLink: "/todo",
+      menuName: "Our todo list"
     }]
-  }
-]
+  }]
 
   isCollapsed = false;
 }

@@ -25,10 +25,15 @@
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
+            <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+
+            <i nz-icon nzType="github" style="font-size: 30px; float: right; margin-right: 25px; padding-top:20px"
+             nz-popover [nzPopoverContent]="contentTemplate" nzPopoverPlacement="leftBottom" nzPopoverTrigger="click"></i>
+
+            <ng-template #contentTemplate>
+              <a href="https://github.com/ABEYEZIHAO/fund-manager.git">Back-end: SpringBoot</a> <br>
+              <a href="https://github.com/ABEYEZIHAO/fund-manager-angular.git">Front-end: Angular</a>
+            </ng-template>
         </span>
       </div>
     </nz-header>
