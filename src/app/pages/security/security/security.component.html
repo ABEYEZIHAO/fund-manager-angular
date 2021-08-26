@@ -1,10 +1,39 @@
+<div style="text-align:right">
+
+  <i nz-icon nzType="plus-circle" nzTheme="outline" (click)="showModal()"></i>
+  <nz-modal
+    [(nzVisible)]="isModalVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()"
+  >
+    <ng-template #modalTitle>Add a new security</ng-template>
+
+    <ng-template #modalContent>
+      <div [hidden]="submitted">
+        <input nz-input placeholder="security symbol" id="symbol" required [(ngModel)]="security.symbol" name="symbol"/>
+      </div>
+
+      <div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newSecurity()">Added</button>
+      </div> 
+    </ng-template>
+
+    <ng-template #modalFooter>
+      <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+      <button nz-button nzType="primary" (click)="handleOk()" nzLoading="isConfirmLoading">Add</button>
+    </ng-template>
+  </nz-modal>  
+</div>
+
 <nz-table >
   <thead>
     <tr>
       <th>ID</th>
       <th>Symbol</th>
       <th>Action</th>
-      <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </tr>
 
   </thead>
@@ -13,10 +42,9 @@
       <td>{{security.id}}</td>
       <td>{{security.symbol}}</td>
       <td>
-        <a>Update 一 {{security.symbol}}</a>
+        <a>Modify</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a href="javascript:void(0);" onclick="deleteSecurity(security.id)">Delete  </a>
-        <button (click)=deleteSecurity(security.id) class="btn btn-danger">Delete</button>
+        <a href="javascript:void(0);" (click)="deleteSecurity(security.id)">Delete</a>
       </td>
     </tr>
   </tbody>
