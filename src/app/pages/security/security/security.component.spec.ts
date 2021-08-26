@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SecurityComponent } from './security.component';
-import { NzTableModule } from 'ng-zorro-antd/table';
 
 describe('SecurityComponent', () => {
   let component: SecurityComponent;
@@ -12,7 +11,7 @@ describe('SecurityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SecurityComponent, NzTableModule ]
+      declarations: [ SecurityComponent ]
     })
     .compileComponents();
   }));
