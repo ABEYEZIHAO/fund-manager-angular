@@ -9,6 +9,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class TodoComponent implements OnInit {
 
   data = [
+    'Put our project\'s information into the Introduction page.',
     'Add service layers for the Fund, Manager, and Position modules.',
     'Add this front-end service into our CI/CD pipeline.',
     'Get some sleep after the presentation and wish you all have a good weekend.'
