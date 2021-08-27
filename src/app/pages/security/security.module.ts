@@ -15,11 +15,12 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 
 @NgModule({
   imports: [SecurityRoutingModule, NzTableModule, NzDividerModule, CommonModule, NzIconModule, NzModalModule, NzDropDownModule,
-            NzFormModule, FormsModule, ReactiveFormsModule, NzMessageModule, NzPopconfirmModule],
+            NzFormModule, FormsModule, ReactiveFormsModule, NzMessageModule, NzPopconfirmModule, NzBreadCrumbModule],
   declarations: [SecurityComponent],
   exports: [SecurityComponent]
 })

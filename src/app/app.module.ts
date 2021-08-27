@@ -23,6 +23,8 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzListModule } from 'ng-zorro-antd/list';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 registerLocaleData(en);
 
@@ -35,7 +37,7 @@ registerLocaleData(en);
     AppRoutingModule,
     FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, IconsProviderModule, 
     NzLayoutModule, NzMenuModule, NzTableModule, NzDividerModule, NzIconModule, NzDropDownModule, NzModalModule, NzFormModule, 
-    NzMessageModule, NzPopconfirmModule, NzCarouselModule, NzPopoverModule
+    NzMessageModule, NzPopconfirmModule, NzCarouselModule, NzPopoverModule, NzListModule, NzBreadCrumbModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

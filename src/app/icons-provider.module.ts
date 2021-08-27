@@ -11,11 +11,12 @@ import {
   EditOutline,
   DeleteOutline,
   HomeOutline,
-  GithubOutline
+  GithubOutline,
+  FolderOutline
 } from '@ant-design/icons-angular/icons';
 
 const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline, PlusOutline, PlusCircleOutline,
-               EditOutline, DeleteOutline, HomeOutline, GithubOutline];
+               EditOutline, DeleteOutline, HomeOutline, GithubOutline, FolderOutline];
 
 @NgModule({
   imports: [NzIconModule],

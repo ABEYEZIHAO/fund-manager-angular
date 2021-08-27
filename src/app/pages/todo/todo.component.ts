@@ -9,11 +9,9 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class TodoComponent implements OnInit {
 
   data = [
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Los Angeles battles huge wildfires.'
+    'Add service layers for the Fund, Manager, and Position modules.',
+    'Add this front-end service into our CI/CD pipeline.',
+    'Get some sleep after the presentation and wish you all have a good weekend.'
   ];
 
   constructor(public msg: NzMessageService) { }
